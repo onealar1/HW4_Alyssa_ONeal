@@ -8,10 +8,12 @@ public class BreakablePlatform extends Platform{
         super(x, y, Color.RED);
     }
 
+    // this will visually make the platform disappear, but the controller will need to physically remove the platform
+    // in case the doodle falls
     @Override
     public void onBounce(){ 
         isBroken = true;
-        getPlatform().setFill(Color.DARKRED); // will need to change to remove the platform from the view
+        getPlatform().setFill(Color.TRANSPARENT); 
     }
 
     public boolean getIsBroken(){

@@ -6,10 +6,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "HW4_Alyssa_ONeal_b1907671",
+            "vmArgs": "--enable-preview --module-path C:\\Users\\alyss\\OneDrive\\Documents\\CSCI-3331-ObjOri\\openjfx-22.0.2_windows-x64_bin-sdk\\javafx-sdk-22.0.2\\lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",
-            "vmArgs": "--enable-preview --module-path C:\\Users\\alyss\\OneDrive\\Documents\\CSCI-3331\\openjfx-22.0.2_windows-x64_bin-sdk\\javafx-sdk-22.0.2\\lib --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--enable-preview --module-path C:\\Users\\alyss\\OneDrive\\Documents\\CSCI-3331-ObjOri\\openjfx-22.0.2_windows-x64_bin-sdk\\javafx-sdk-22.0.2\\lib --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -17,7 +25,7 @@
             "request": "launch",
             "mainClass": "App",
             "projectName": "HW5_Alyssa_ONeal_936e4010",
-            "vmArgs": "--enable-preview --module-path C:\\Users\\alyss\\OneDrive\\Documents\\CSCI-3331\\openjfx-22.0.2_windows-x64_bin-sdk\\javafx-sdk-22.0.2\\lib --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--enable-preview --module-path C:\\Users\\alyss\\OneDrive\\Documents\\CSCI-3331-ObjOri\\openjfx-22.0.2_windows-x64_bin-sdk\\javafx-sdk-22.0.2\\lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

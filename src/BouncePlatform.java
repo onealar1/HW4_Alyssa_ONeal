@@ -1,6 +1,7 @@
 import javafx.scene.paint.Color;
 
 public class BouncePlatform extends Platform{
+    private double boost;
     
     public BouncePlatform(double x, double y){
         super(x, y, Color.GREEN);
@@ -8,6 +9,10 @@ public class BouncePlatform extends Platform{
 
     @Override
     public void onBounce(){
-        // implement higher jump
+        
     }
+
+    /*public void jumpHigher(Doodle doodle){
+        doodle.setVelocityY(-doodle.getJumpVelocity() - boost);
+    }*/
 }

@@ -1,12 +1,13 @@
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Platform {
+public class Platform extends Rectangle{
     private int platformHeight;
     private int platformWidth;
     private double platformX;
     private double platformY;
     private Rectangle platform;
+    private double platformDir; // for moving platform
 
     public Platform(double platformX, double platformY, Color color){
         this.platformHeight = 20;
@@ -19,6 +20,22 @@ public class Platform {
 
     public Rectangle getPlatform(){
         return this.platform;
+    }
+
+    public void setPalatformDir(double platformDir){
+        this.platformDir = platformDir;
+    }
+
+    public double getPlatformDir() {
+        return this.platformDir;
+    }
+
+    public void setPlatformX(double platformX){
+        this.platformX = platformX;
+    } 
+
+    public void setPlatformY(double platformY){
+        this.platformY = platformY;
     }
 
     public double getPlatformHeight(){
