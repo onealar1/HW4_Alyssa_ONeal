@@ -3,12 +3,16 @@ import javafx.stage.Stage;
 
 public class App extends Application{
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        Application.launch(args);
     }
 
     @Override
-    public void start(Stage arg0) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'start'");
+    public void start(Stage primaryStage) {
+        View gameView = new View(primaryStage);
+        gameView.show();
+
+        Doodle gameDoodle = new Doodle();
+        Controller gameController = new Controller(gameDoodle, gameView);
+        gameController.start();
     }
 }
