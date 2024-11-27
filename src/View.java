@@ -1,5 +1,6 @@
 
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,22 +14,23 @@ public class View extends BorderPane{
     private Pane centerPane = new Pane();
     private HBox bottomPane = new HBox();
     private Stage stage;
-    private Rectangle doodle;
+    private Doodle doodle;
     private int score = 0;
     private int sceneWidth = 300;
     private int sceneHeight = 500;
-    private Rectangle platform;
+    private Platform platform;
     private double doodleWidth = 25, doodleHeight = 50;
     private Button quit;
+    private double doodleX, doodleY;
 
-    public View(Stage stage, double doodleX, double doodleY){
+    public View(Stage stage){
         this.stage = stage;
-        displaySetup(doodleX, doodleY, doodleWidth, doodleHeight);
+        displaySetup();
     }
 
 
-    public void displaySetup(double doodleX, double doodleY, double doodleWidth, double doodleHeight){
-        doodle = new Rectangle(doodleX, doodleY, doodleWidth, doodleHeight);
+    public void displaySetup(){
+        doodle = new Doodle();
         centerPane.getChildren().add(doodle);
 
         Label label = new Label("Total score: " + score);
@@ -46,8 +48,8 @@ public class View extends BorderPane{
         stage.setResizable(false);
     }
 
-    public void showPlatforms(){
-
+    public void showPlatforms(Node platform){
+        centerPane.getChildren().addAll(platform);
     }
 
     public void updateDoodlePosition(double doodleX, double doodleY){
@@ -79,5 +81,9 @@ public class View extends BorderPane{
 
     public Button getQuitButton(){
         return this.quit;
+    }
+
+    public void animateDoodle(){
+        doodle.applyGravity(); // add animation timeline thing
     }
 }

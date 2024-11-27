@@ -8,11 +8,11 @@ public class App extends Application{
 
     @Override
     public void start(Stage primaryStage) {
-        View gameView = new View(primaryStage, 100, 100);
+        View gameView = new View(primaryStage);
         gameView.show();
 
-        // gameDoodle = new Doodle();
-        //Controller gameController = new Controller(gameDoodle, gameView);
-        //gameController.start();
+        Doodle gameDoodle = new Doodle();
+        Controller gameController = new Controller(gameDoodle, gameView);
+        gameController.start();
     }
 }

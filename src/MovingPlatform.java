@@ -4,8 +4,8 @@ import javafx.scene.paint.Color;
 public class MovingPlatform extends Platform{
 
     private double speed;
-    private double platformX = getPlatformX();
-    private double platformY = getPlatformY();
+    private double platformX = getX();
+    private double platformY = getY();
     private double platformWidth = getPlatformWidth();
     private double platformHeight = getPlatformHeight();
     private double platformDir = getPlatformDir();

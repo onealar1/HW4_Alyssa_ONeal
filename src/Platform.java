@@ -2,24 +2,18 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Platform extends Rectangle{
-    private int platformHeight;
-    private int platformWidth;
-    private double platformX;
-    private double platformY;
-    private Rectangle platform;
+    private static final int PLATFORM_HEIGHT = 20;
+    private static final int PLATFORM_WIDTH = 60;
     private double platformDir; // for moving platform
 
     public Platform(double platformX, double platformY, Color color){
-        this.platformHeight = 20;
-        this.platformWidth = 60;
-        this.platformX = platformX;
-        this.platformY = platformY;
-        platform = new Rectangle(platformX, platformY, color);
-        platform.setFill(color);
+        super(PLATFORM_WIDTH, PLATFORM_HEIGHT, color);
+        setX(platformX);
+        setY(platformY);
     }
 
     public Rectangle getPlatform(){
-        return this.platform;
+        return this;
     }
 
     public void setPalatformDir(double platformDir){
@@ -30,39 +24,21 @@ public class Platform extends Rectangle{
         return this.platformDir;
     }
 
-    public void setPlatformX(double platformX){
-        this.platformX = platformX;
-    } 
-
-    public void setPlatformY(double platformY){
-        this.platformY = platformY;
+    public static double getPlatformHeight(){
+        return PLATFORM_HEIGHT;
     }
 
-    public double getPlatformHeight(){
-        return this.platformHeight;
-    }
-
-    public double getPlatformWidth(){
-        return this.platformWidth;
-    }
-
-    public double getPlatformX(){
-        return this.platformX;
-    }
-
-    public double getPlatformY(){
-        return this.platformY;
+    public static double getPlatformWidth(){
+        return PLATFORM_WIDTH;
     }
 
     public void setPosition(double platformX, double platformY){
-        this.platformX = platformX;
-        this.platformY = platformY;
-        platform.setX(platformX);
-        platform.setY(platformY);
+        setX(platformX);
+        setY(platformY);
     }
 
     public boolean collidesWith(double doodleX, double doodleY, int doodleHeight, int doodleWidth){
-        return platform.getBoundsInParent().intersects(doodleX, doodleY, doodleHeight, doodleWidth);
+        return getBoundsInParent().intersects(doodleX, doodleY, doodleHeight, doodleWidth);
     }
 
     public void update(){} // for overriding moving platforms methods (moving platform)
