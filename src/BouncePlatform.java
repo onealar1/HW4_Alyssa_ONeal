@@ -1,18 +1,18 @@
-import javafx.scene.paint.Color;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 
 public class BouncePlatform extends Platform{
-    private double boost;
+    private final double BOOST = -300;
+    private Image platform_img = new Image("images\\bounce-platform.png");
     
     public BouncePlatform(double x, double y){
-        super(x, y, Color.GREEN);
+        super(x, y);
+        setHeight(40);
+        setWidth(70);
+        this.setFill(new ImagePattern(platform_img));
     }
 
-    @Override
-    public void onBounce(){
-        
+    public double getBoost(){
+        return BOOST;
     }
-
-    /*public void jumpHigher(Doodle doodle){
-        doodle.setVelocityY(-doodle.getJumpVelocity() - boost);
-    }*/
 }

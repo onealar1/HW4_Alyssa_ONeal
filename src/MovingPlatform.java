@@ -1,33 +1,29 @@
-import javafx.scene.paint.Color;
 
 // this platform moves left and right, so it will override the update method
+
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+
 public class MovingPlatform extends Platform{
 
-    private double speed;
-    private double platformX = getX();
-    private double platformY = getY();
-    private double platformWidth = getPlatformWidth();
-    private double platformHeight = getPlatformHeight();
-    private double platformDir = getPlatformDir();
-    
-    public MovingPlatform(double x, double y) {
-        super(x, y, Color.BLUE);
+    private final double SPEED = 3;
+    private int platformDir = 1;
+    private double leftBoundary, rightBoundary;
+    private Image platform_img = new Image("images\\moving-platform.png");
+
+    public MovingPlatform(double x, double y, double leftBoundary, double rightBoundary) {
+        super(x, y);
+        this.setFill(new ImagePattern(platform_img));
+        this.leftBoundary = leftBoundary;
+        this.rightBoundary = rightBoundary;
     }
 
-    @Override
-    public void update(){
-        
-    }
+    public void movePlatform(){
 
-    /*public void movePlatform(double platformDir){
-        if (platformX >= 0 && platformX + getPlatformWidth() <= getPlatformHeight()) {
-            platformX = platformX + platformDir * speed;
+        if (getX() <= leftBoundary || getX() >= rightBoundary) {
+            platformDir *= -1;
         }
-        else if (platformX < 0){
-            platformX = 0;
-        }
-        else if (platformX + platformWidth > sceneWidth) {
-            paddleX = sceneWidth - paddleWidth;
-        }
-    }*/
+
+        setX(getX() + (platformDir * SPEED));
+    }
 }

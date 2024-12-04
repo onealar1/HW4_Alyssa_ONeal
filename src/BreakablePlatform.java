@@ -1,22 +1,21 @@
-import javafx.scene.paint.Color;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 
 public class BreakablePlatform extends Platform{
 
     private boolean isBroken = false;
+    private Image platform_img = new Image("images\\platform-broken.png");
     
     public BreakablePlatform(double x, double y){
-        super(x, y, Color.RED);
-    }
-
-    // this will visually make the platform disappear, but the controller will need to physically remove the platform
-    // in case the doodle falls
-    @Override
-    public void onBounce(){ 
-        isBroken = true;
-        getPlatform().setFill(Color.TRANSPARENT); 
+        super(x, y);
+        this.setFill(new ImagePattern(platform_img));
     }
 
     public boolean getIsBroken(){
         return this.isBroken;
+    }
+
+    public void setIsBroken(boolean isBroken){
+        this.isBroken =isBroken;
     }
 }

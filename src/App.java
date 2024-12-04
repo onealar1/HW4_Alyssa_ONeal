@@ -11,8 +11,8 @@ public class App extends Application{
         View gameView = new View(primaryStage);
         gameView.show();
 
-        Doodle gameDoodle = new Doodle();
-        Controller gameController = new Controller(gameDoodle, gameView);
+        Doodle doodle = gameView.getDoodle();
+        Controller gameController = new Controller(doodle, gameView);
         gameController.start();
     }
 }
